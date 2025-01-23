@@ -6,7 +6,9 @@
     "dev": "tsx watch src/server.ts ",
     "start": "node build/server.js",
     "lint": "eslint . --ext .ts",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +30,9 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "typescript-eslint": "8.21.0"
+    "typescript-eslint": "8.21.0",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.4"
   },
   "dependencies": {
     "@types/bcryptjs": "2.4.6",
