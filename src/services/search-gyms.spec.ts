@@ -29,7 +29,7 @@ describe('search gyms service', () => {
     });
 
     const { gyms } = await sut.execute({
-      query: 'javascript',
+      query: 'JavaScript',
       page: 1,
     });
 
@@ -51,7 +51,7 @@ describe('search gyms service', () => {
     }
 
     const { gyms } = await sut.execute({
-      query: 'javascript',
+      query: 'JavaScript',
       page: 2,
     });
 
