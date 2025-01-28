@@ -13,6 +13,13 @@ export default defineConfig({
           environment: 'prisma/prisma-test-environment.ts',
         },
       },
+      {
+        extends: true,
+        test: {
+          include: ['src/services/**/*.spec.ts'],
+          name: 'unit',
+        },
+      },
     ],
   },
 });
