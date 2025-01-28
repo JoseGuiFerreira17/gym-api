@@ -1,14 +1,41 @@
+import { PrismaClient } from '@prisma/client';
+import 'dotenv/config';
+
+import { execSync } from 'node:child_process';
+import { randomUUID } from 'node:crypto';
 import type { Environment } from 'vitest/environments';
+
+const prisma = new PrismaClient();
+
+function generateDatabaseUrl(schema: string) {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is already set');
+  }
+
+  const url = new URL(process.env.DATABASE_URL);
+
+  url.searchParams.set('schema', schema);
+
+  return url.toString();
+}
 
 export default <Environment>{
   name: 'prisma',
   transformMode: 'ssr',
   async setup() {
-    console.log('Setting up Prisma test environment');
+    const schema = randomUUID();
+    const databaseUrl = generateDatabaseUrl(schema);
+
+    process.env.DATABASE_URL = databaseUrl;
+
+    execSync('npx prisma migrate deploy');
 
     return {
       async teardown() {
-        console.log('Tearing down Prisma test environment');
+        await prisma.$executeRawUnsafe(
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
+        );
+        await prisma.$disconnect();
       },
     };
   },
