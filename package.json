@@ -7,7 +7,7 @@
     "start": "node build/server.js",
     "lint": "eslint . --ext .ts",
     "build": "tsup src --out-dir build",
-    "test": "vitest run",
+    "test:e2e": "vitest run --project e2e",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "test:watch": "vitest"
