@@ -39,6 +39,7 @@
     "vitest": "3.0.4"
   },
   "dependencies": {
+    "@fastify/jwt": "9.0.3",
     "@types/bcryptjs": "2.4.6",
     "bcryptjs": "2.4.3",
     "dayjs": "1.11.13",
