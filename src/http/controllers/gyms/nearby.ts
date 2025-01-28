@@ -12,10 +12,10 @@ export async function nearby(request: FastifyRequest, reply: FastifyReply) {
         return v >= -180 && v <= 180;
       }),
     })
-    .parse(request.body);
+    .parse(request.query);
 
   const fetchNearbyGymsService = makeFetchNearbyGymsService();
-  const gyms = await fetchNearbyGymsService.execute({
+  const { gyms } = await fetchNearbyGymsService.execute({
     userLatitude: latitude,
     userLongitude: longitude,
   });
