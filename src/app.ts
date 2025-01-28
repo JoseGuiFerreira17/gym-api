@@ -13,8 +13,8 @@ app.register(fastifyJwt, {
 });
 
 app.register(usersRoutes);
-app.register(gymsRoutes, { prefix: '/gyms' });
-app.register(checkInsRoutes, { prefix: '/check-ins' });
+app.register(gymsRoutes);
+app.register(checkInsRoutes);
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
