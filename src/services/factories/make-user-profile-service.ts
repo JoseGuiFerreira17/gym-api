@@ -3,7 +3,7 @@ import { UserProfileService } from '../user-profile';
 
 export function makeUserProfileService() {
   const prismaUsersRepository = new PrismaUsersRepository();
-  const registerService = new UserProfileService(prismaUsersRepository);
+  const service = new UserProfileService(prismaUsersRepository);
 
-  return registerService;
+  return service;
 }

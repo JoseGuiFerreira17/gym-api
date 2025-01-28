@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { ResourceNotFound } from '@/services/errors/resource-not-found';
-import { makeUserProfileService } from '@/services/factories/make-user-profile';
+import { makeUserProfileService } from '@/services/factories/make-user-profile-service';
 
 export async function getUserProfile(
   request: FastifyRequest,
